@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/inews_home"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/inews_home"
+        android:name="khan.zian.hasan.inews_kotlin.ui.InewsHomeScreenFragment"
+        android:label="inews_home_screen_fragment"
+        tools:layout="@layout/inews_home_screen_fragment" />
+</navigation>
