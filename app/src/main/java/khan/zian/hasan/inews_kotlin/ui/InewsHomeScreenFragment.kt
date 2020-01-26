@@ -27,6 +27,10 @@ class InewsHomeScreenFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(InewsHomeScreenViewModel::class.java)
         // TODO: Use the ViewModel
+
+
+
     }
+
 
 }
