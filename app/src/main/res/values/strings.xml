@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">INews-Kotlin</string>
+    <string name="thumnail">thumbnail</string>
+    <string name="big_string_for_demo">heading</string>
 </resources>

@@ -1,6 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/BackgroundColor">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            style="@style/CardViewCustom"
+            app:cardCornerRadius="@dimen/dimens_16dp"
+            app:cardElevation="@dimen/dimens_1dp">
+
+            <RelativeLayout style="@style/MatchWrap">
+
+                <LinearLayout
+                    android:id="@+id/main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_image"
+                        style="@style/StoryImageCard"
+                        app:cardCornerRadius="@dimen/dimens_8dp"
+                        app:cardElevation="@dimen/dimens_4dp">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            style="@style/StoryImage"
+                            android:contentDescription="@string/thumnail"
+                            tools:src="@drawable/ic_launcher_foreground" />
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/heading"
+                            style="@style/StoryHeading"
+                            tools:text="@string/big_string_for_demo" />
+
+
+                        <TextView
+                            android:id="@+id/section"
+                            style="@style/SectionText"
+                            tools:text="Section" />
+
+                        <TextView
+                            android:id="@+id/date"
+                            style="@style/DateText"
+                            tools:text="21 Augest 2017" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sub_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/authorImage"
+                        style="@style/AuthorImage"
+                        android:elevation="1dp"
+                        tools:src="@drawable/gurdian" />
+
+                    <TextView
+                        android:id="@+id/author"
+                        style="@style/AuthorText"
+                        android:textSize="12sp"
+                        tools:text="By Author Name" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</layout>

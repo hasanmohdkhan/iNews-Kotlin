@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/inews_home"
-        android:name="khan.zian.hasan.inews_kotlin.ui.InewsHomeScreenFragment"
+        android:name="khan.zian.hasan.inews_kotlin.ui.HomeFragment"
         android:label="inews_home_screen_fragment"
-        tools:layout="@layout/inews_home_screen_fragment" />
+        tools:layout="@layout/home_fragment" />
 </navigation>

@@ -1,12 +1,13 @@
 package khan.zian.hasan.inews_kotlin.network
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
 
 
 class NetworkResponse(
     @Json(name = "response")
     var response: Response? = null
-
 )
 
 
@@ -28,12 +29,12 @@ data class Response(
     @Json(name = "orderBy")
     var orderBy: String? = null,
     @Json(name = "results")
-    var results: List<Result>? = null
+    var news: List<News>? = null
 
 )
 
 
-class Result(
+data class News(
     @Json(name = "id")
     var id: String? = null,
     @Json(name = "type")
@@ -55,5 +56,63 @@ class Result(
     @Json(name = "pillarId")
     var pillarId: String? = null,
     @Json(name = "pillarName")
-    var pillarName: String? = null
+    var pillarName: String? = null,
+
+    @Json(name = "fields")
+    var fields: Fields
 )
+
+@JsonClass(generateAdapter = true)
+data class Fields(
+    @Json(name = "body")
+    val body: String,
+    @Json(name = "bodyText")
+    val bodyText: String,
+    @Json(name = "byline")
+    val authors: String,
+    @Json(name = "bylineHtml")
+    val bylineHtml: String,
+    @Json(name = "charCount")
+    val charCount: String,
+    @Json(name = "firstPublicationDate")
+    val firstPublicationDate: String,
+    @Json(name = "headline")
+    val headline: String,
+    @Json(name = "isInappropriateForSponsorship")
+    val isInappropriateForSponsorship: String,
+    @Json(name = "isLive")
+    val isLive: String,
+    @Json(name = "isPremoderated")
+    val isPremoderated: String,
+    @Json(name = "lang")
+    val lang: String,
+    @Json(name = "lastModified")
+    val lastModified: String,
+    @Json(name = "legallySensitive")
+    val legallySensitive: String,
+    @Json(name = "main")
+    val main: String,
+    @Json(name = "productionOffice")
+    val productionOffice: String,
+    @Json(name = "publication")
+    val publication: String,
+    @Json(name = "shortUrl")
+    val shortUrl: String,
+    @Json(name = "shouldHideAdverts")
+    val shouldHideAdverts: String,
+    @Json(name = "shouldHideReaderRevenue")
+    val shouldHideReaderRevenue: String,
+    @Json(name = "showAffiliateLinks")
+    val showAffiliateLinks: String,
+    @Json(name = "showInRelatedContent")
+    val showInRelatedContent: String,
+    @Json(name = "standfirst")
+    val standfirst: String,
+    @Json(name = "thumbnail")
+    val thumbnail: String,
+    @Json(name = "trailText")
+    val trailText: String,
+    @Json(name = "wordcount")
+    val wordcount: String
+)
+

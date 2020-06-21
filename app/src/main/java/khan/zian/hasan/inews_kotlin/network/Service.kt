@@ -7,15 +7,20 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface NewsService {
 
-    @GET("search?api-key=441da542-bd64-4060-b81c-eff647cb6f27")
-    fun getResponse() : Deferred<NetworkResponse>
+    @GET("search?")
+    fun getResponse(
+      @Query("api-key") apiKey :String,
+       @Query("show-fields") showFields :String
+      // @Query("api-key") apiKey :String
+    ) : Deferred<NetworkResponse>
 }
 
 private val moshi = Moshi.Builder()
-                        .add(KotlinJsonAdapterFactory())
+                         .add(KotlinJsonAdapterFactory())
                          .build()
 
 object Network {
