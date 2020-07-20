@@ -12,16 +12,16 @@ import retrofit2.http.Query
 interface NewsService {
 
     @GET("search?")
-    fun getResponse(
-      @Query("api-key") apiKey :String,
-       @Query("show-fields") showFields :String
-      // @Query("api-key") apiKey :String
-    ) : Deferred<NetworkResponse>
+    fun getResponseAsync(
+        @Query("api-key") apiKey: String,
+        @Query("show-fields") showFields: String,
+        @Query("page") page: Int
+    ): Deferred<NetworkResponse>
 }
 
 private val moshi = Moshi.Builder()
-                         .add(KotlinJsonAdapterFactory())
-                         .build()
+    .add(KotlinJsonAdapterFactory())
+    .build()
 
 object Network {
     // Configure retrofit to parse JSON and use coroutines

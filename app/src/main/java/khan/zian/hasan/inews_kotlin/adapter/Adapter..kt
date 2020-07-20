@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import khan.zian.hasan.inews_kotlin.R
 import khan.zian.hasan.inews_kotlin.databinding.NewsItemBinding
@@ -61,6 +62,7 @@ class Adapter : ListAdapter<News, Adapter.ViewHolder>(DiffCallback()) {
             val requestOptions = RequestOptions()
             requestOptions.placeholder(R.drawable.ic_launcher_foreground)
             requestOptions.error(R.drawable.gurdian)
+            requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL)
             return requestOptions
         }
     }
@@ -68,10 +70,11 @@ class Adapter : ListAdapter<News, Adapter.ViewHolder>(DiffCallback()) {
 
 class DiffCallback : DiffUtil.ItemCallback<News>() {
     override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.webUrl == newItem.webUrl
     }
 
     override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
-        return oldItem == newItem
+        return oldItem.equals(newItem)
+
     }
 }
